@@ -1,0 +1,111 @@
+{
+ "pages": [
+	 
+ {
+	"path" : "pages/contact/contactAdd/index",
+	"style" : 
+	{
+		"navigationBarTitleText" : "",
+		"enablePullDownRefresh" : false,
+		"navigationStyle": "custom"
+	}
+ },
+ {
+ 	"path" : "pages/contact/index/index",
+ 	"style" : 
+ 	{
+ 		"navigationBarTitleText" : "",
+ 		"enablePullDownRefresh" : false,
+		"navigationStyle": "custom"
+ 	}
+ },{
+  "path": "pages/index/index" // 您的项目首页
+ },
+ {
+ 	"path" : "pages/contact/applicationList/index",
+ 	"style" : 
+ 	{
+ 		"navigationBarTitleText" : "",
+ 		"enablePullDownRefresh" : false
+ 	}
+ },
+ {
+ 	"path" : "pages/contact/friendList/index",
+ 	"style" : 
+ 	{
+ 		"navigationBarTitleText" : "",
+ 		"enablePullDownRefresh" : false
+ 	}
+ },
+ {
+ 	"path" : "pages/contact/groupList/index",
+ 	"style" : 
+ 	{
+ 		"navigationBarTitleText" : "",
+ 		"enablePullDownRefresh" : false
+ 	}
+ },
+ {
+ 	"path" : "pages/common/createGroup/index",
+ 	"style" : 
+ 	{
+ 		"navigationBarTitleText" : "",
+ 		"enablePullDownRefresh" : false
+ 	}
+ }],
+ // "subPackages": [{
+ //  "root": "TUIKit",
+ //  "pages": [
+ //   {
+ //    "path": "components/TUIConversation/index",
+ //    "style": {
+ //     "navigationBarTitleText": "腾讯云 IM"
+ //    }
+ //   },
+ //   {
+ //    "path": "components/TUIChat/index",
+ //    "style": {
+ //     "navigationBarTitleText": "腾讯云 IM"
+ //    }
+ //   },
+ //    // 集成 chat 组件，必须配置该路径: 视频播放
+ //   {
+ //    "path": "components/TUIChat/video-play",
+ //    "style": {
+ //     "navigationBarTitleText": "腾讯云 IM"
+ //    }
+ //   },
+ //   {
+ //    "path": "components/TUIChat/web-view",
+ //    "style": {
+ //     "navigationBarTitleText": "腾讯云 IM"
+ //    }
+ //   },
+ //   {
+ //    "path": "components/TUIContact/index",
+ //    "style": {
+ //     "navigationBarTitleText": "腾讯云 IM"
+ //    }
+ //   },
+   
+ //   {
+ //    "path": "components/TUIGroup/index",
+ //    "style": {
+ //     "navigationBarTitleText": "腾讯云 IM"
+ //    }
+ //   }
+ //  ]
+ // }],
+ // "preloadRule": {
+ //  "TUIKit/components/TUIConversation/index": {
+ //   "network": "all",
+ //   "packages": ["TUIKit"]
+ //  }
+ // },
+ "globalStyle": {
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "uni-app",
+  "navigationBarBackgroundColor": "#F8F8F8",
+  "backgroundColor": "#F8F8F8"
+ }
+}

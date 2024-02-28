@@ -1,0 +1,19 @@
+
+@mixin colBox($isBtw) {
+	display: flex;
+	flex-direction: column;
+	@if $isBtw {
+		justify-content: space-between;
+	}
+}
+@mixin vCenterBox {
+	display: flex;
+	align-items: center;
+}
+
+@mixin btwBox {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
