@@ -10,6 +10,7 @@ import Vue from 'vue'
 // import './uni.promisify.adaptor'
 // import VueCompositionAPI from "@vue/composition-api";
 // Vue.use(VueCompositionAPI);
+require('@/utils');
 import store from './store'
 import uView from '@/uni_modules/uview-ui/index.js'
 Vue.use(uView)

@@ -1,4 +1,4 @@
-export const AddFriendQrCOdePrefix = 'io.openim.app/addFriend/';
+export const AddFriendQrCodePrefix = 'io.openim.app/addFriend/';
 export const AddGroupQrCodePrefix = 'io.openim.app/joinGroup/';
 
 export const ChatingFooterActionTypes = {
@@ -22,7 +22,7 @@ export const GroupMemberListTypes = {
 	CallInvite: 'CallInvite',
 };
 
-export const COntactChooseTypes = {
+export const ContactChooseTypes = {
 	Invite: 'Invite',
 	ForWard: 'ForWard',
 	BatchForWard: 'BatchForWard',

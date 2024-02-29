@@ -8,6 +8,7 @@
 			height: $u.addUnit(size),
 		}, $u.addStyle(customStyle)]"
 		@tap="clickHandler"
+		@longpress="longpressHandler"
 	>
 		<slot>
 			<!-- #ifdef MP-WEIXIN || MP-QQ || MP-BAIDU  -->
@@ -138,6 +139,9 @@
 			},
 			clickHandler() {
 				this.$emit('click', this.name)
+			},
+			longpressHandler() {
+				this.$emit('longpress', this.name);
 			}
 		}
 	}
