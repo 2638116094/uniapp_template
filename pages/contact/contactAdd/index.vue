@@ -54,7 +54,6 @@
 		},
 		methods: {
 			groupAction({ idx }) {
-				console.log('idx',idx, idx === 1)
 				if(idx === 0) {
 					uni.navigateTo({
 						url:`/pages/common/createGroup/index`
@@ -65,11 +64,11 @@
 					})
 				} else if(idx === 2) {
 					uni.navigateTo({
-						url:`/pages/common/createGroup/index`
+						// url:`/pages/common/createGroup/index`
 					})
 				} else if(idx === 3) {
 					uni.navigateTo({
-						url:`/pages/common/createGroup/index`
+						url:`/pages/common/searchUserOrGroup/index`
 					})
 				}
 			}

@@ -10,12 +10,19 @@
 			</view>
 		</CustomNavBar>
 		<ContactMenus />
+		<!-- <view class="test_btn">
+			<u-button text="按钮" @click="btnEvent" type="primary"></u-button>
+		</view> -->
 	</view>
 </template>
 
 <script>
 	import CustomNavBar from '@/components/CustomNavBar/index.vue';
 	import ContactMenus from './components/ContactMenus.vue';
+	import NotificationUtil from '@/common/notification';
+	let count = 1;
+	let notificationIntance = null;
+	
 	export default {
 		components: {
 			CustomNavBar,
@@ -34,6 +41,18 @@
 			},
 			leftClick() {
 				console.log('leftClick111');
+			},
+			btnEvent() {
+				notificationIntance = new NotificationUtil();
+				count++;
+				const config = {
+					title: 'nitcice',
+					content: '通知内容',
+					tickerTip: '提示',
+					notifyId: count
+				};
+				console.log('notice');
+				notificationIntance.createNotification(config);
 			}
 		}
 	}
@@ -58,6 +77,10 @@
 				height: 56rpx;
 			}
 		}
+	}
+	.test_btn{
+		width: 300rpx;
+		margin: 0 auto;
 	}
 }
 </style>

@@ -1,6 +1,14 @@
 {
- "pages": [
-	 
+ "pages": [	 
+{
+"path" : "pages/contact/index/index",
+"style" : 
+{
+	"navigationBarTitleText" : "",
+	"enablePullDownRefresh" : false,
+	"navigationStyle": "custom"
+}
+},
  {
 	"path" : "pages/contact/contactAdd/index",
 	"style" : 
@@ -9,15 +17,6 @@
 		"enablePullDownRefresh" : false,
 		"navigationStyle": "custom"
 	}
- },
- {
- 	"path" : "pages/contact/index/index",
- 	"style" : 
- 	{
- 		"navigationBarTitleText" : "",
- 		"enablePullDownRefresh" : false,
-		"navigationStyle": "custom"
- 	}
  },{
   "path": "pages/index/index" // 您的项目首页
  },

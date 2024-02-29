@@ -74,7 +74,6 @@
 		},
 		methods: {
 			chooseImage() {
-				console.log('avatarDetail');
 				uni.chooseImage({
 					count:1,
 					sizeType:['compressed'],
@@ -91,7 +90,8 @@
 						
 						try {
 							// #ifdef MP-WEIXIN
-							
+							const url = await up
+							console.log('url')
 							// #endif
 							
 							// #ifdef APP-PLUS || H5

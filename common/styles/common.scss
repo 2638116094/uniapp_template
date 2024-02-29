@@ -23,3 +23,9 @@
 	word-break: break-all;
 	white-space: nowrap;
 }
+
+@mixin centerBox {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
