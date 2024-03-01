@@ -4,7 +4,28 @@
 		<view class="application_item_detail">
 			<view class="content">
 				<text class="user_name">{{getShowName}}</text>
+				<view class="title" v-if="isGroupApplication">
+					申请加入
+					<text class="group_name">{{application.groupName}}</text>
+				</view>
+				<text class="req_message">{{application.reqMsg}}</text>
 			</view>
+			
+			<view class="application_action">
+				<text v-if="showStateStr" class="status_tip">{{getStateStr}}</text>
+				<text v-if="showGreet" @click.stop="greetToUser" class="status_tip_greet">
+					打招呼
+				</text>
+				<button 
+				class="access_btn"
+				@click.stop="accpetApplication"
+				type="primary"
+				:plain="true"
+				size="mini"
+				:loading="accessLoading" 
+				v-if="showAccept">{{isGroupApplication? "同意": "接收"}}</button>
+			</view>
+			<view class="bottom_line"></view>
 		</view>
 	</view>
 </template>
@@ -16,6 +37,11 @@
 		name: 'ApplicationItem',
 		components: {
 			Avatar
+		},
+		data() {
+			return {
+				accessLoading: false
+			}
 		},
 		computed: {
 			isGroupApplication() {
@@ -67,6 +93,9 @@
 				type:Object
 			}
 		},
+		created() {
+			console.log('application',this.isRecv,this.application);
+		},
 		methods: {
 			clickItem() {
 				if(this.showAccept) {
@@ -109,6 +138,6 @@
 
 <style lang="scss" scoped>
 	.application_item {
-		
+		display: flex;
 	}
 </style>

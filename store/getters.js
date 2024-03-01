@@ -7,8 +7,8 @@ export default {
 	storeFriendList: (state) => state.contact.friendList,
 	storeSentFriendApplication:(state) => state.contact.sentFriendApplications,
 	storeSentGroupApplication: (state) => state.contact.sentGroupApplications,
-	storeRecvFriendApplications: (state) => state.contact.recvGroupApplications,
-	storeRecvGroupApplication: (state) => state.contact.recvGroupApplications,
+	storeRecvFriendApplications: (state) => state.contact.recvFriendApplications,
+	storeRecvGroupApplications: (state) => state.contact.recvGroupApplications,
 	storeUnHandleFriendApplicationNum: (state) => state.contact.unHandleFriendApplicationNum,
 	storeUnHandleGroupApplicationNum: (state) => state.contact.unHandleGroupApplicationNum
 }

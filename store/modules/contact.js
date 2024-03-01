@@ -4,9 +4,13 @@ const state = {
 	friendList: [],
 	blackList: [],
 	groupList: [],
-	recvFriendApplications: [],
+	recvFriendApplications: [
+		{groupName: '1',reqMsg:'123213'}
+	],
 	sentFriendApplications: [],
-	recvGroupApplications: [],
+	recvGroupApplications:[
+		{groupName: '1',reqMsg:'123213'}
+	],
 	sentGroupApplications: [],
 	unHandleFriendApplicationNum: 10,
 	unHandleGroupApplicationNum: 12,
