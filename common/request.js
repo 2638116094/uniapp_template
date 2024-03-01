@@ -10,7 +10,10 @@ function service(options = {}) {
     return new Promise((resolved, rejected) => {
 		//成功
         options.success = (res) => {
-			resolved(res);//错误
+			if(res.statusCode == 200 && res.data.code == 2000) {
+				resolved(res.data);
+			}
+			// resolved(res);//错误
             // if (Number(res.data.code) == 200) {  //请求成功
             //     resolved(res.data.data);
             // } else {

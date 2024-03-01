@@ -10,5 +10,6 @@ export default {
 	storeRecvFriendApplications: (state) => state.contact.recvFriendApplications,
 	storeRecvGroupApplications: (state) => state.contact.recvGroupApplications,
 	storeUnHandleFriendApplicationNum: (state) => state.contact.unHandleFriendApplicationNum,
-	storeUnHandleGroupApplicationNum: (state) => state.contact.unHandleGroupApplicationNum
+	storeUnHandleGroupApplicationNum: (state) => state.contact.unHandleGroupApplicationNum,
+	storeAppConfig: (state) => state.user.appConfig
 }

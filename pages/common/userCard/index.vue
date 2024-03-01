@@ -5,6 +5,9 @@
 		<view v-if="!isLoading" class="">
 			<view class="base_info">
 				<Avatar :desc="sourceUserInfo.remark" />
+				<view class="user_name">
+					<text class="text">{{getShowName}}</text>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -13,8 +16,7 @@
 <script>
 	import CustomNavBar from '@/components/CustomNavBar/index.vue';
 	import Avatar from '@/components/Avatar/index.vue';
-	// import mock from '@/mock/friends.js'
-	import { getData } from '@/api/test';
+	import { newFriends } from '@/api/friends.js';
 	export default {
 		components: {
 			CustomNavBar,
@@ -34,10 +36,19 @@
 			// if(sourceID) {}
 			this.init();
 		},
+		computed: {
+			getShowName() {
+				let suffix = "";
+				if(this.sourceUserInfo.remark) {
+					suffix = `(${this.sourceUserInfo.remark})`;
+				}
+				return this.sourceUserInfo.nickname + suffix;
+			}
+		},
 		methods: {
 			init() {
 				const data = {}
-				getData().then(res => {
+				newFriends().then(res => {
 					console.log('请求',res);
 				}).catch(err => {
 					console.log('请求err',err);
