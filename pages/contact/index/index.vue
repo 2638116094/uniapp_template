@@ -10,9 +10,9 @@
 			</view>
 		</CustomNavBar>
 		<ContactMenus />
-		<!-- <view class="test_btn">
+		<view class="test_btn">
 			<u-button text="按钮" @click="btnEvent" type="primary"></u-button>
-		</view> -->
+		</view>
 	</view>
 </template>
 
@@ -20,6 +20,7 @@
 	import CustomNavBar from '@/components/CustomNavBar/index.vue';
 	import ContactMenus from './components/ContactMenus.vue';
 	import NotificationUtil from '@/common/notification';
+	import IMSDK from 'openim-uniapp-polyfill';
 	let count = 1;
 	let notificationIntance = null;
 	
@@ -43,16 +44,19 @@
 				console.log('leftClick111');
 			},
 			btnEvent() {
-				notificationIntance = new NotificationUtil();
-				count++;
-				const config = {
-					title: 'nitcice',
-					content: '通知内容',
-					tickerTip: '提示',
-					notifyId: count
-				};
-				console.log('notice');
-				notificationIntance.createNotification(config);
+				IMSDK.asyncApi(IMSDK.IMMethods.Login, IMSDK.uuid(),null, null).then(res => {
+					console.log('res',res);
+				}).catch(e => {console.log('err',e)});
+				// notificationIntance = new NotificationUtil();
+				// count++;
+				// const config = {
+				// 	title: 'nitcice',
+				// 	content: '通知内容',
+				// 	tickerTip: '提示',
+				// 	notifyId: count
+				// };
+				// console.log('notice');
+				// notificationIntance.createNotification(config);
 			}
 		}
 	}
