@@ -29,3 +29,11 @@
 	align-items: center;
 	justify-content: center;
 }
+
+@mixin ellipsisWithLine($line) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $line;
+	overflow: hidden;
+	word-break: break-all;
+}

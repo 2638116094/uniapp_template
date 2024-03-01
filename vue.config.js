@@ -11,5 +11,5 @@ module.exports = {
   chainWebpack(config) {
     // disable type check and let `vue-tsc` handles it
     config.plugins.delete('fork-ts-checker');
-  },
+  }
 };
