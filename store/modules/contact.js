@@ -5,13 +5,18 @@ const state = {
 	blackList: [],
 	groupList: [],
 	recvFriendApplications: [
-		{groupName: '1',reqMsg:'123213'}
+		{userID:1,nickname: '好友名称',reqMsg:'好友请求消息',handleResult:0},
+		{userID:2,nickname: '好友名称',reqMsg:'好友请求消息',handleResult:1},
+		{userID:3,nickname: '好友名称',reqMsg:'好友请求消息',handleResult:2},
+		{userID:4,nickname: '好友名称',reqMsg:'好友请求消息',handleResult:-1}
+	],
+	recvGroupApplications:[
+		{fromUserID:111,groupName: '群名称',reqMsg:'群组请求消息',groupID:90,groupFaceURL: ''}
 	],
 	sentFriendApplications: [],
-	recvGroupApplications:[
-		{groupName: '1',reqMsg:'123213'}
+	sentGroupApplications: [
+		{groupName: '好友名称',reqMsg:'好友请求消息',handleResult:0}
 	],
-	sentGroupApplications: [],
 	unHandleFriendApplicationNum: 10,
 	unHandleGroupApplicationNum: 12,
 };

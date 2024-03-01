@@ -1,9 +1,9 @@
 <template>
 	<view class="application_item" @click="clickItem">
 		<Avatar :src="getAvatarUrl" />
-		<view class="application_item_detail">
+		<view class="application_item_details">
 			<view class="content">
-				<text class="user_name">{{getShowName}}</text>
+				<text class="user_name">name{{getShowName}}</text>
 				<view class="title" v-if="isGroupApplication">
 					申请加入
 					<text class="group_name">{{application.groupName}}</text>
@@ -13,7 +13,7 @@
 			
 			<view class="application_action">
 				<text v-if="showStateStr" class="status_tip">{{getStateStr}}</text>
-				<text v-if="showGreet" @click.stop="greetToUser" class="status_tip_greet">
+				<text v-if="showGreet" @click.stop="greetToUser" class="status_tip greet">
 					打招呼
 				</text>
 				<button 
@@ -94,10 +94,13 @@
 			}
 		},
 		created() {
-			console.log('application',this.isRecv,this.application);
+			// console.log('application',this.isRecv,this.application);
+			// console.log(this.isGroupApplication);
 		},
 		methods: {
 			clickItem() {
+				return console.log('showAccept',this.showAccept, this.isRecv, this.application);
+				
 				if(this.showAccept) {
 					uni.navigateTo({
 						url:`/pages/contact/applicationDetails/index?application=${JSON.stringify(this.application)}`
@@ -131,13 +134,68 @@
 					})
 				}
 				func.then(() => uni.$u.toast("操作系统")).catch(() => uni.$u.toast("操作失败")).finally(() => (this.accessLoading =false));
+			},
+			greetToUser() {
+				// IMSDK.asyncApi(IMSDK.IMMethods)
+				uni.$u.toast('打招呼');
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.application_item {
-		display: flex;
+.application_item {
+	display: flex;
+	padding: 24rpx 44rpx;
+	color: $uni-text-color;
+	justify-content: flex-start;
+	background-color: #fff;
+	&_details {
+		@include vCenterBox;
+		margin-left: 24rpx;
+		width: 100%;
+		position: relative;
 	}
+	.content {
+		@include colBox(false);
+		font-size: 26rpx;
+		width: 100%;
+		.user_name {
+			@include nomalEllipsis;
+			max-width: 400rpx;
+			font-size: 28rpx;
+			color: $uni-text-color;
+			margin-bottom: 10rpx;
+		}
+		.req_message {
+			@include ellipsisWithLine(2);
+			max-width: 80%;
+			color: #999;
+			
+		}
+		.title {
+			margin-bottom: 20rpx;
+			.group_name {
+				margin-left: 12rpx;
+				color: $uni-color-primary;
+			}
+		}
+	}
+	.application_action {
+		position: absolute;
+		right: 0;
+		.status_tip {
+			font-size: 28rpx;
+			color: #666;
+		}
+		.access_btn {
+			padding: 0 12rpx;
+			height: 48rpx;
+			line-height: 48rpx;
+		}
+		.greet {
+			color: #418ae5;
+		}
+	}
+}
 </style>

@@ -1,12 +1,16 @@
 <template>
 	<view class="application_list_container">
 		<CustomNavBar :title="isGroupApplication ? '新的群聊': '新的好友'" />
+		<view class="menu_tab">
+			<text :class="['tab_item', {'tab_item_active':tab_index==index}]" v-for="(item,index) in tabList" @click="changeTab(index)">{{item.name}}</text>
+		</view>
 		<view class="pane_row"
 		:style="{transform: `translateX(${isRecv?'0':'-100%'})`}">
+			
 			<view class="pane_content">
 				<u-list v-if="getRecvRenderData.length>0" class="application_list">
 					<u-list-item v-for="application in  getRecvRenderData"
-					:key="application[!isGroupApplication?'fromUserID':'userID'] + application.groupID">
+					:key="application[!isGroupApplication?'fromUserID':'userID']">
 						<ApplicationItem  :isRecv="true" :application="application" />
 					</u-list-item>
 				</u-list>
@@ -40,6 +44,7 @@
 			return {
 				keyword: null,
 				isRecv: true,
+				tab_index: 0,
 				isGroupApplication: false
 			}
 		},
@@ -53,7 +58,7 @@
 			getRecvRenderData() {
 				const tmpList = this.isGroupApplication?this.storeRecvGroupApplications:this.storeRecvFriendApplications;
 				tmpList.sort((a,b) => (a.handleResult === 0 ? -1:1));
-				return tmpList.splice(0,4);
+				return tmpList.slice(0,4);
 			},
 			getSendRenderData() {
 				const tmpList = this.isGroupApplication?this.storeSentGroupApplication: this.storeSentFriendApplication;
@@ -73,14 +78,31 @@
 		},
 		onLoad(params) {
 			const { applicationType } = params;
-			this.isGroupApplication = applicationType=== ContactMenuTypes.NewGroup;
-			console.log('isGroupApplication',this.isGroupApplication);
+			this.isGroupApplication = applicationType === ContactMenuTypes.NewGroup;
+			console.log('【isGroupApplication】',this.isGroupApplication);
+			// console.log('isGroupApplication',this.isGroupApplication,this.$store.state.contact.recvFriendApplications);
 		},
 		onUnload() {
 			
 		},
 		methods: {
-			
+			changeTab(index) {
+				this.tab_index = index;
+				this.isRecv = index === 0;
+			},
+			previewAll() {
+				uni.navigateTo({
+					url:`/pages/contact/applicationListDetails/index?isGrouplication=${this.isGroupApplication}&isRecv=${this.isRecv}`
+				});
+			},
+			toSearch() {
+				uni.navigateTo({
+					url:`/pages/common/searchUserOrGroup/index?isSearchGroup=${this.isGroupApplication}`
+				});
+			},
+			updateUnhandleNum() {
+				
+			}
 		}
 	}
 </script>
@@ -136,6 +158,33 @@
 	.view_all {
 		background-color: #fff;
 		padding: 44rpx;
+	}
+	.menu_tab {
+		
+		@include centerBox;
+		.tab_item {
+			width: 50%;
+			text-align: center;
+			min-height: 100rpx;
+			line-height: 100rpx;
+			font-size: 30rpx;
+			color: #999;
+			&_active {
+				color: #000;
+				position: relative;
+				&::after {
+					content: '';
+					background-color: #999;
+					height: 8rpx;
+					width: 100%;
+					display: flex;
+					left: 0;
+					z-index: 9;
+					position: absolute;
+					
+				}
+			}
+		}
 	}
 }
 
