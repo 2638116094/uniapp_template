@@ -109,6 +109,14 @@
 	 		"navigationBarTitleText" : "",
 	 		"enablePullDownRefresh" : false
 	 	}
+	 },
+	 {
+	 	"path" : "pages/conversation/conversationList/components/ChatHeader",
+	 	"style" : 
+	 	{
+	 		"navigationBarTitleText" : "",
+	 		"enablePullDownRefresh" : false
+	 	}
 	 }],
  // "subPackages": [{
  //  "root": "TUIKit",

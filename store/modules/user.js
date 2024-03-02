@@ -13,6 +13,7 @@ const defaultConfig = {
 const state = {
 	appConfig: {},
 	selfInfo: {},
+	isSyncing: false,
 	authData: {} || uni.getStorageSync('authData')
 };
 const mutations = {
@@ -43,7 +44,8 @@ const actions = {
 		return new Promise(async (resolve, reject) => {
 			try {
 				const  {data}  = await  businessGetUserInfo();
-				const businessData = data.users[0] ?? {};
+				console.log('data',data);
+				const businessData =  data.users;
 				commit('SET_SELF_INFO', businessData);
 				resolve(businessData);
 			} catch(e) {

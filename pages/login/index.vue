@@ -107,12 +107,9 @@
 				const { token } = data; 
 				this.saveLoginProfile(data);
 				this.$store.commit('user/SET_AUTH_DATA', data);
-				this.$store.dispatch('user/getSelfInfo').then(res => {
-					console.log('user -> res',res);
-				})
-				this.$store.dispatch('contact/getFriendLists').then(res => {
-					console.log('contact -> res',res);
-				})
+				this.$store.dispatch('user/getSelfInfo');
+				
+				this.$store.dispatch('contact/getFriendLists')
 				uni.switchTab({
 					url:'/pages/conversation/conversationList/index'
 				})

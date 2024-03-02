@@ -1,5 +1,5 @@
 export default {
-	// storeCoversationList: (state) => state.coversation.conversationList,
+	storeConversationList: (state) => state.conversation.conversationList,
 	// storeCurrentConversation: (state) => state.coversation.currentConversation,
 	// storeUnReadCount: (state) => state.coversation.unReadCount,
 	// storeCurrentGroup: (state) => state.coversation.currentGroup.,
@@ -11,5 +11,7 @@ export default {
 	storeRecvGroupApplications: (state) => state.contact.recvGroupApplications,
 	storeUnHandleFriendApplicationNum: (state) => state.contact.unHandleFriendApplicationNum,
 	storeUnHandleGroupApplicationNum: (state) => state.contact.unHandleGroupApplicationNum,
-	storeAppConfig: (state) => state.user.appConfig
+	storeAppConfig: (state) => state.user.appConfig,
+	storeIsSyncing: (state) => state.user.isSyncing,
+	storeSelfInfo: (state) => state.user.selfInfo
 }

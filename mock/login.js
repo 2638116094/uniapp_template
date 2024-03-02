@@ -22,10 +22,9 @@ Mock.mock(`${baseUrl}/user/find/full`, 'post', {
 	'code': 2000,
 	'msg': 'success',
 	'data|10': {
-		'users|2': [
-			{
-				'test':'test'
-			}
-		]
+		'users': {
+			'faceUrl':"@image('200x100', '#4A7BF7', 'Hello')",
+			'nickname': '@cname'
+		} 
 	}
 })
