@@ -86,11 +86,11 @@
 			}
 		},
 		created() {
-			console.log('create', this.storeUnHandleFriendApplicationNum ,this.storeUnHandleGroupApplicationNum);
+			// console.log('create', this.storeUnHandleFriendApplicationNum ,this.storeUnHandleGroupApplicationNum);
 		},
 		methods: {
 			menuClick({type}) {
-				console.log('type', type);
+				// console.log('type', type);
 				this.$emit('menuClick')
 				switch(type) {
 					case ContactMenuTypes.NewFriend:

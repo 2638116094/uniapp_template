@@ -2,7 +2,7 @@
 	<view class="application_list_container">
 		<CustomNavBar :title="isGroupApplication ? '新的群聊': '新的好友'" />
 		<view class="menu_tab">
-			<text :class="['tab_item', {'tab_item_active':tab_index==index}]" v-for="(item,index) in tabList" @click="changeTab(index)">{{item.name}}</text>
+			<text :class="['tab_item', {'tab_item_active':tab_index==index}]" v-for="(item,index) in tabList" :key="index" @click="changeTab(index)">{{item.name}}</text>
 		</view>
 		<view class="pane_row"
 		:style="{transform: `translateX(${isRecv?'0':'-100%'})`}">

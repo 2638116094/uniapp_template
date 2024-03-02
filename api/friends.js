@@ -8,4 +8,10 @@ export const newFriends = (data) => {
 	})
 }
 
-// export const 
+export const getFriendList = (data) => {
+	return request({
+		url: '/api/getFriends',
+		method: 'GET',
+		data
+	})
+}

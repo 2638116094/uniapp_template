@@ -6,3 +6,26 @@ Mock.mock(`${baseUrl}/api/client_config`,{
 	'msg': 'success',
 	'data': {}
 })
+
+Mock.mock(`${baseUrl}/account/login`,'post',{
+	'code': 2000,
+	'msg': 'success',
+	'data': {
+		'token': '@guid',
+		'userID':'@id',
+		'chatToken': '@guid',
+		
+	}
+})
+
+Mock.mock(`${baseUrl}/user/find/full`, 'post', {
+	'code': 2000,
+	'msg': 'success',
+	'data|10': {
+		'users|2': [
+			{
+				'test':'test'
+			}
+		]
+	}
+})

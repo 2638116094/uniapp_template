@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import IMSDK from 'openim-uniapp-polyfill';
+import {getFriendList} from '@/api/friends.js';
 const state = {
 	friendList: [],
 	blackList: [],
@@ -52,10 +53,17 @@ const mutations = {
 };
 
 const actions = {
-	getFriendList({commit}) {
-		IMSDK.asyncApi(IMSDK.IMMethods.GetFriendList, uuidv4()).then(({ data }) => {
-			const friendInfoList = data.map((item) => item.friendInfo);
-			commit('SET_FRIEND_LIST', friendInfoList);
+	getFriendLists({commit}) {
+		// IMSDK.asyncApi(IMSDK.IMMethods.GetFriendList, uuidv4()).then(({ data }) => {
+		// 	const friendInfoList = data.map((item) => item.friendInfo);
+		// 	commit('SET_FRIEND_LIST', friendInfoList);
+		// })
+		// const friendInfoList = await getFriendList();
+		// commit('SET_FRIEND_LIST', {...friendInfoList});
+		return new Promise(async (resolve, reject) => {
+			const {data} = await getFriendList();
+			commit('SET_FRIEND_LIST',data)
+			resolve(data);
 		})
 	},
 	getGrouplist({ commit }) {

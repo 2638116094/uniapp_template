@@ -10,9 +10,6 @@
 			</view>
 		</CustomNavBar>
 		<ContactMenus />
-		<view class="test_btn">
-			<u-button text="按钮" @click="btnEvent" type="primary"></u-button>
-		</view>
 	</view>
 </template>
 
@@ -81,10 +78,6 @@
 				height: 56rpx;
 			}
 		}
-	}
-	.test_btn{
-		width: 300rpx;
-		margin: 0 auto;
 	}
 }
 </style>

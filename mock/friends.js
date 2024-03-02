@@ -24,3 +24,13 @@ Mock.mock(`${baseUrl}/api/newFriends`, 'get', {
 		}
 	]
 })
+
+Mock.mock(`${baseUrl}/api/getFriends`, {
+	'code': 2000,
+	'msg': 'success',
+	'data|10': [
+		{
+			'userID': '@id'
+		}
+	]
+})
