@@ -55,19 +55,43 @@
 			
 		},
 		onLoad() {
-			console.log(this.storeIsSyncing);
+			this.$store.dispatch('conversation/getConversationList')
 		},
 		methods: {
 			scroll(e) { },
 			onRefresh(e) { },
 			scrolltolower(e) { },
-			closeAllSwipe() {}
+			closeAllSwipe() {},
+			scrollToTop() {
+				const conversationItem = this.$refs.conversationItem;
+				if(conversationItem) {
+					uni.createSelectorQuery().in(this).select('.conversation_item').boundingClientRect(async (rect) => {
+						if(rect) {
+							const itemHeight =rect.height;
+							// const index = 
+						}
+					})
+				}
+			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
 .conversation_container {
-	
+	@include colBox(true);
+	height: 100vh;
+	overflow-y: hidden;
+	.swipe_wrapper {
+		@include colBox(false);
+		flex: 1;
+		width: 100%;
+		overflow-y: auto;
+	}
+	.scroll-view {
+		height: 0;
+		flex: 1;
+		width: 100%;
+	}
 }
 </style>

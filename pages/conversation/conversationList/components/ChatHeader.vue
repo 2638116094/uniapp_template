@@ -28,8 +28,12 @@
 				<image  src="@/static/images/common_circle_add.png" />
 			</view>
 			<u-overlay :show="moreMenuVisiable" @click="moreMenuVisiable=false" opacity="0">
-				<view :style="{top: popMenuPossition.top,right:popMenuPossition.right}" class="more_menu">
-					<view class="menu_item" v-for="item in moreMenus" :key="item.idx" @click="clickMenu(item)">
+				<view :style="{top: popMenuPossition.top,right:popMenuPossition.right}" 
+					class="more_menu">
+					<view class="menu_item" 
+						v-for="item in moreMenus" 
+						:key="item.idx" 
+						@click="clickMenu(item)">
 						<image :src="item.icon" mode=""/>
 						<text>{{item.title}}</text>
 					</view>
@@ -80,11 +84,50 @@
 			}
 		},
 		created() {
-			console.log(this.storeSelfInfo);
+			// console.log(this.storeSelfInfo);
 		},
 		methods: {
-			clickMenu(item) {
-				
+			clickMenu({ idx }) {
+				switch(idx) {
+					case 0:
+						// #ifdef APP-PLUS
+						uni.scanCode({
+							scanType:['qrCode'],
+							success:({result}) => { }
+						})
+						// #endif
+						
+						// #ifndef APP-PLUS
+						uni.$u.toast('暂不支持');
+						// #endif
+						
+						break;
+					case 1:
+					case 2:
+						uni.navigateTo({
+							url:`/pages/common/searchUserOrGroup/index?isSearchGroup=${idx===2}`
+						})
+						break;
+					case 3:
+						uni.navigateTo({
+							url:`/pages/common/createGroup/index`
+						})
+						break;
+				}
+			},
+			async showMore() {
+				const { right, bottom }  = await this.getEl(".more_icon");
+				this.popMenuPossition.right = uni.getWindowInfo().windowWidth - right + 'px';
+				this.popMenuPossition.top = bottom+'px';
+				this.moreMenuVisiable = true;
+			},
+			getEl(el) {
+				return new Promise((resolve) => {
+					const query = uni.createSelectorQuery().in(this);
+					query.select(el).boundingClientRect((data) => {
+						resolve(data);
+					}).exec();
+				})
 			}
 		}
 	}
@@ -175,20 +218,57 @@
 	.right_action {
 		display: flex;
 		position: relative;
-		.cell_icon {
+		.call_icon {
 			margin-right: 24rpx;
+			// width: 50rpx;
+			// height: 50rpx;
+			// right: 28rpx;
+			// position: absolute;
+			// background-color: red;
+			// transform: translateX(25rpx);
+			image {
+				width: 56rpx;
+				height: 56rpx;
+			}
+		}
+		.more_icon {
 			image {
 				width: 56rpx;
 				height: 56rpx;
 			}
 		}
 		.more_menu {
-			position: absolute;
 			z-index: 99;
+			position: absolute;
 			width: max-content;
 			border-radius: 12rpx;
 			background-color: #fff;
+			// background-color: red;
 			box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.16);
+			&::before {
+				content: '';
+				width: 50rpx;
+				height: 25rpx;
+				right: 4rpx;
+				// transform: translateX(-28rpx);
+				position: absolute;
+				display: inline-block;
+				// background-color: red;
+			}
+			.menu_item {
+				display: flex;
+				padding: 20rpx 24rpx;
+				align-items: center;
+				justify-content: flex-start;
+				image {
+					width: 30rpx;
+					height: 30rpx;
+					margin-right: 24rpx;
+				}
+				&:last-child {
+					border: none;
+				}
+			}
 		}
 	}
 }

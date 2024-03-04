@@ -13,5 +13,6 @@ export default {
 	storeUnHandleGroupApplicationNum: (state) => state.contact.unHandleGroupApplicationNum,
 	storeAppConfig: (state) => state.user.appConfig,
 	storeIsSyncing: (state) => state.user.isSyncing,
-	storeSelfInfo: (state) => state.user.selfInfo
+	storeSelfInfo: (state) => state.user.selfInfo,
+	storeCurrentUserID: (state) => state.user.selfInfo.userID
 }

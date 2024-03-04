@@ -12,6 +12,7 @@
   "dependencies": {
     "@tencentcloud/chat-uikit-uniapp": "^2.0.5",
     "better-mock": "^0.3.7",
+    "dayjs": "^1.11.10",
     "open-im-sdk": "^3.5.1-alpha.8",
     "openim-uniapp-polyfill": "^1.3.0",
     "unplugin-vue2-script-setup": "^0.11.4",
