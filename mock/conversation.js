@@ -10,7 +10,8 @@ Mock.mock(`${baseUrl}/api/getConversationListData`,{
 			'isPinned|1':[0,1],
 			'faceUrl':"@image()",
 			'showName': '@cname',
-			"latestMsgSendTime": Mock.Random.date()
+			"latestMsgSendTime": Mock.Random.date(),
+			"unreadCount|1":[0,1,2] 
 		}
 	]
 })

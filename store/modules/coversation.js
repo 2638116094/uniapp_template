@@ -11,7 +11,7 @@ const actions = {
 	async getConversationList({state, commit}, isFirstPage = true) {
 		try {
 			const {data} = await getConversationListData();
-			// console.log('data',data);
+			// console.log('data',data)-;
 			commit('SET_CONVERSATON_LIST', [
 				...(isFirstPage? []: state.conversationList),
 				...data

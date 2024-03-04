@@ -1,13 +1,12 @@
 <template>
 	<u-swipe-action-item
-		:index="source.conversationID"
+		:key="source.conversationID"
 		@click="clickConversationMenu($event, source)"
 		:name="source.conversationID"
-		:options="getSwipeActions || []"
-		@touchmove.stop
+		:options="getSwipeActions"
 		>
 		<view class="conversation_item" @tap.prevent="clickConversationItem">
-			<view class="pinned" v-if="source.isPinned"></view>
+			<!-- <view class="pinned" v-if="source.isPinned"></view> -->
 			<view class="left_info">
 				<Avatar :isGroup="isGroup"
 				:isNotify="isNotify"
@@ -130,14 +129,21 @@
 			return {};
 		},
 		created() {
-			// console.log('source',this.source)
+			console.log('source',this.getSwipeActions)
 		},
 		methods: {
 			clickConversationMenu({name, index}, item) {
-				
+				const noUnRead = this.getSwipeActions.length === 2;
+				if(index === 0&& ! noUnRead) {
+					
+				}
+				this.$emit("closeAllSwipe")
 			},
 			clickConversationItem() {
-				
+				console.log('clickConversationItem');
+				uni.navigateTo({
+					url:'/pages/index/index'
+				})
 			}
 		}
 	}

@@ -85,7 +85,7 @@
 	.swipe_wrapper {
 		@include colBox(false);
 		flex: 1;
-		width: 100%;
+		width: 90%;
 		overflow-y: auto;
 	}
 	.scroll-view {
