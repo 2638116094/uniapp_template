@@ -1,3 +1,4 @@
+import { SessionType } from "openim-uniapp-polyfill";
 import store from "@/store";
 import dayjs from "dayjs";
 
@@ -28,3 +29,13 @@ export const formatConversionTime = (timestemp) => {
 	}
 	return fromNowStr;
 }	
+
+export const prepareConversationState = (conversation, back2Tab = false) => {
+	let url = `/pages/conversation/chating/index?back2Tab=${back2Tab}`;
+	if(conversation.conversationType === SessionType.Notification) {
+		url = "/pages/conversation/notifyMessageList/index";
+	}
+	uni.navigateTo({
+		url
+	})
+}

@@ -1,6 +1,6 @@
 <template>
 	<view class="chat_header">
-		<view class="selft_info">
+		<view class="self_info">
 			<Avatar :src="storeSelfInfo.faceUrl" :desc="storeSelfInfo.nickname" size="46"/>
 			<view class="self_info_desc">
 				<view class="user_state">
@@ -146,7 +146,7 @@
 	@include btwBox;
 	padding: 36rpx 44rpx;
 	margin-top: var(--status-bar-height);
-	.selft_info{
+	.self_info{
 		@include btwBox;
 		&_desc {
 			@include colBox(true);

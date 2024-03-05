@@ -54,8 +54,11 @@
 		onReady() {
 			
 		},
-		onLoad() {
+		onShow() {
 			this.$store.dispatch('conversation/getConversationList')
+		},
+		onLoad() {
+			// console.log('storeConversationList',this.storeConversationList);
 		},
 		methods: {
 			scroll(e) { },
@@ -85,7 +88,7 @@
 	.swipe_wrapper {
 		@include colBox(false);
 		flex: 1;
-		width: 90%;
+		width: 100%;
 		overflow-y: auto;
 	}
 	.scroll-view {

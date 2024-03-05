@@ -117,6 +117,38 @@
 	 		"navigationBarTitleText" : "",
 	 		"enablePullDownRefresh" : false
 	 	}
+	 },
+	 {
+	 	"path" : "pages/conversation/chating/index",
+	 	"style" : 
+	 	{
+	 		"navigationBarTitleText" : "",
+	 		"enablePullDownRefresh" : false
+	 	}
+	 },
+	 {
+	 	"path" : "pages/conversation/notifyMessageList/index",
+	 	"style" : 
+	 	{
+	 		"navigationBarTitleText" : "",
+	 		"enablePullDownRefresh" : false
+	 	}
+	 },
+	 {
+	 	"path" : "pages/conversation/chating/components/ChatingHeader",
+	 	"style" : 
+	 	{
+	 		"navigationBarTitleText" : "",
+	 		"enablePullDownRefresh" : false
+	 	}
+	 },
+	 {
+	 	"path" : "pages/conversation/groupSettings/index",
+	 	"style" : 
+	 	{
+	 		"navigationBarTitleText" : "",
+	 		"enablePullDownRefresh" : false
+	 	}
 	 }],
  // "subPackages": [{
  //  "root": "TUIKit",
@@ -173,7 +205,7 @@
  			"pagePath": "pages/conversation/conversationList/index",
 			"iconPath": "static/tabbar/tabbar_conversation.png",
 			"selectedIconPath": "static/tabbar/tabbar_conversation_active.png",
-			"text": "OpenIM"
+			"text": "消息"
  		},
 		{
 			"pagePath": "pages/contact/index/index",

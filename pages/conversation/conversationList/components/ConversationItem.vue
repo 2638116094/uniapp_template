@@ -19,12 +19,14 @@
 						<text v-if="messagePrefix" class="lastest_msg_prefix" :class="{lastest_msg_active: needActivePerfix}">
 							{{messagePrefix}}
 						</text>
-						<text class="lastest_msg_content">{{ lastestMessage }}</text>
+						<text class="">{{ lastestMessage }}</text>
 					</view>
 				</view>
 			</view>
 			<view class="right_desc">
-				<text class="send_time">{{ latestMessageTime }}</text>
+				<text class="send_time">{{ source.latestMsgSendTime }}</text>
+				<image v-if="notAccept" style="width: 32rpx;height: 32rpx;" src="@/static/images/conversation_not_accept.png" mode="" />
+				<u-badge v-else max="99" :value="source.unreadCount"></u-badge>
 			</view>
 		</view>
 	</u-swipe-action-item>
@@ -33,7 +35,7 @@
 <script>
 	import { GroupAtType, MessageReceiveOptType, SessionType } from 'open-im-sdk';
 	import Avatar from '@/components/Avatar/index.vue';
-	import { parseMessageByType } from '@/common/index.js';
+	import { parseMessageByType, prepareConversationState } from '@/common/index.js';
 	export default {
 		components: {
 			Avatar
@@ -41,6 +43,10 @@
 		computed: {
 			needActivePerfix() {
 				
+			},
+			notAccept() {
+			  // return this.source.recvMsgOpt !== MessageReceiveOptType.Nomal;
+			  return false;
 			},
 			latestMessageTime() {
 				return this.source.lastestMessageTime ? formatConversionTime(this.source.latestMsgSendTime): "";
@@ -128,9 +134,6 @@
 		data() {
 			return {};
 		},
-		created() {
-			console.log('source',this.getSwipeActions)
-		},
 		methods: {
 			clickConversationMenu({name, index}, item) {
 				const noUnRead = this.getSwipeActions.length === 2;
@@ -140,10 +143,7 @@
 				this.$emit("closeAllSwipe")
 			},
 			clickConversationItem() {
-				console.log('clickConversationItem');
-				uni.navigateTo({
-					url:'/pages/index/index'
-				})
+				prepareConversationState(this.source)
 			}
 		}
 	}
@@ -155,6 +155,8 @@
 	flex-direction: row;
 	padding: 12rpx 44rpx 20rpx;
 	position: relative;
+	height: 92rpx;
+	// background-color: red;
 	&_active {
 		background-color: #f3f3f3;
 	}
@@ -163,11 +165,10 @@
 		.details {
 			@include colBox(true);
 			margin-left: 24rpx;
-			height: 46rpx;
 			color: $uni-text-color;
 			.conversation_name {
 				@include nomalEllipsis;
-				max-width: 40vw;
+				max-width: 80vw;
 				font-size: 28rpx;
 			}
 			.lastest_msg_wrap {
@@ -193,7 +194,7 @@
 		@include colBox(true);
 		align-items: flex-end;
 		width: max-content;
-		height: 46rpx;
+		height: 92rpx;
 		justify-content: space-between;
 		.send_time {
 			width: max-content;

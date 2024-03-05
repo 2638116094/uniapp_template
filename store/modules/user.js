@@ -14,6 +14,7 @@ const state = {
 	appConfig: {},
 	selfInfo: {},
 	isSyncing: false,
+	rootFontSize: uni.getStorageSync('RootFontSize')|| '14px',
 	authData: {} || uni.getStorageSync('authData')
 };
 const mutations = {
